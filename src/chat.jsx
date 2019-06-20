@@ -66,15 +66,13 @@ export function Chat({ messages = [], name, onSend, user}) {
         text: message,
       }]);
       setMessage('');
-      //scroll to bottom
-      setTimeout(()=>{scrollRef.current.scrollIntoView({ behavior: "smooth", block: "end" })},1);
     }
-  }, [onSend, user, message, scrollRef]);
+  }, [onSend, user, message]);
 
   useEffect(()=>{
     if( prevMessages && messages.length > prevMessages.length) {
       //scroll to bottom
-      setTimeout(()=>{scrollRef.current.scrollIntoView({ behavior: "smooth", block: "end" })},1);
+      scrollRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
     }
   },[messages, prevMessages]);
   return (
